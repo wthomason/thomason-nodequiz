@@ -16,11 +16,11 @@
                             <span style="color: gold;">{{quizSummary.score}}</span>
                         </span>
 
-                        <span *ngIf="quizSummary.score < '100' || quizSummary.score >= '80'">
+                        <span *ngIf="quizSummary.score < '100' && quizSummary.score >= '80'">
                             <span style="color: green;">{{quizSummary.score}}</span>
                         </span>
 
-                        <span *ngIf="quizSummary.score < '80' || quizSummary.score >= '61'">
+                        <span *ngIf="quizSummary.score < '80' && quizSummary.score >= '61'">
                                 <span style="color: yellowgreen;">{{quizSummary.score}}</span>
                         </span>
 

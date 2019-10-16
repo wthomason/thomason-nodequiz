@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng build && node server/app.js",
+    "start": "node server/app.js",
+    "localhost": "ng build && node server/app.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -55,5 +56,9 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
+  }, 
+  "engines": {
+    "node": "11.11.x",
+    "npm": "6.7.x"
   }
 }
