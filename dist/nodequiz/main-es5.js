@@ -316,7 +316,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"summaries\">\r\n<br><br><br>\r\n    <table style=\"width:85%; margin:0 auto;\">\r\n        <tr>\r\n          <th>Employee ID</th>\r\n          <th>Quiz ID</th>\r\n          <th>Quiz Name</th>\r\n          <th>Date Taken</th>\r\n          <th>Score</th>\r\n        </tr>\r\n        <tr *ngFor=\"let summary of summaries;\">\r\n          <td>{{summary.employeeId}}</td>\r\n          <td>{{summary.quizId}}</td>\r\n          <td>{{summary.quizName}}</td>\r\n          <td>{{summary.dateTaken}}</td>\r\n          <td>{{summary.score}}</td>\r\n        </tr>\r\n    </table>\r\n<!--\r\n<table mat-table [dataSource]=\"summaries\" class=\"mat-elevation-z8\">\r\n\r\n\r\n\r\n    <ng-container matColumnDef=\"employeeId\">\r\n      <th mat-header-cell *matHeaderCellDef> Employee ID </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.employeeId}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"quizId\">\r\n      <th mat-header-cell *matHeaderCellDef> Quiz ID </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.quizId}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"uizName\">\r\n      <th mat-header-cell *matHeaderCellDef> Quiz Name </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.quizName}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"dateTaken\">\r\n      <th mat-header-cell *matHeaderCellDef> Date Taken </th>\r\n      <td mat-cell *matCellDef=\"let element\"> {{element.dateTaken}} </td>\r\n    </ng-container>\r\n\r\n\r\n    <ng-container matColumnDef=\"score\">\r\n        <th mat-header-cell *matHeaderCellDef> Score </th>\r\n        <td mat-cell *matCellDef=\"let element\"> {{element.score}} </td>\r\n      </ng-container>\r\n\r\n    <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\r\n    <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\r\n  </table>-->\r\n\r\n</div>\r\n"
+module.exports = "<div style=\"width: 80%; margin-top: 2%; margin:0 auto;\" fxLayout=\"column\">\r\n  <mat-card class=\"mat-elevation-z8\">\r\n      <mat-card-title style=\"text-align:center\" ><h1>Summary of quizzes</h1></mat-card-title>\r\n      <mat-card-content>\r\n\r\n          <div *ngIf=\"summaries\">\r\n              <br><br><br>\r\n                  <table style=\"width:85%; margin:0 auto;\">\r\n                      <tr>\r\n                        <th>Employee ID</th>\r\n                        <th>Quiz ID</th>\r\n                        <th>Quiz Name</th>\r\n                        <th>Date Taken</th>\r\n                        <th>Score</th>\r\n                      </tr>\r\n                      <tr *ngFor=\"let summary of summaries;\">\r\n                        <td>{{summary.employeeId}}</td>\r\n                        <td>{{summary.quizId}}</td>\r\n                        <td>{{summary.quizName}}</td>\r\n                        <td>{{summary.dateTaken}}</td>\r\n                        <td>{{summary.score}}</td>\r\n                      </tr>\r\n                  </table>\r\n\r\n              </div>\r\n\r\n\r\n      </mat-card-content>\r\n  </mat-card>\r\n</div>\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -327,7 +327,7 @@ module.exports = "<div *ngIf=\"summaries\">\r\n<br><br><br>\r\n    <table style=
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Welcome to the Quiz Selection Page!</h1>\r\n<small *ngIf=\"errorMessage\">{{ errorMessage }}<br/></small>\r\n <div *ngIf=\"quizzes\">  \r\n    <div style=\"width: 30%; margin-top: 12%; margin-left: 10%;\" fxLayout=\"column\" fxLayoutAlign=\"center\" *ngFor=\"let quiz of quizzes\">\r\n        <mat-card class=\"mat-elevation-z8\">\r\n            <mat-card-title>{{ quiz.quizName }}</mat-card-title>\r\n            <mat-card-content>\r\n                <img style=\"max-width: 95%;\" src=\"assets/presentation/{{ quiz.quizId }}/{{ quiz.presentation[0].imagePath }}\">\r\n                <p>{{ quiz.quizDescription }}</p>\r\n                <br /><br />\r\n                <mat-card-content>\r\n                <button fxFlex mat-raised-button color=\"primary\" (click)=\"presentationPage(quiz.quizId)\">View Presentation</button>     \r\n                <br /><br />\r\n                </mat-card-content> \r\n\r\n            </mat-card-content>\r\n        </mat-card>\r\n    </div>\r\n  </div>"
+module.exports = "<h1 style=\"text-align: center;\">Welcome to the Quiz Selection Page!</h1>\n<small *ngIf=\"errorMessage\">{{ errorMessage }}<br/></small>\n <div *ngIf=\"quizzes\">\n\n        <div class=\"container\"\n        fxLayout\n        fxLayout.xs=\"column\"\n        fxLayoutAlign=\"center\"\n        fxLayoutGap=\"10px\"\n        fxLayoutGap.xs=\"0\">\n\n    <div style=\"width: 30%; margin-top: 12%;\" fxFlex=\"30%\" *ngFor=\"let quiz of quizzes\">\n        <mat-card class=\"mat-elevation-z8\">\n            <mat-card-title>{{ quiz.quizName }}</mat-card-title>\n            <mat-card-content>\n                <img style=\"max-width: 95%;\" src=\"assets/presentation/{{ quiz.quizId }}/{{ quiz.presentation[0].imagePath }}\">\n                <p>{{ quiz.quizDescription }}</p>\n                <br /><br />\n                <mat-card-content>\n                <button fxFlex mat-raised-button color=\"primary\" (click)=\"presentationPage(quiz.quizId)\">View Presentation</button>     \n                <br /><br />\n                </mat-card-content> \n\n            </mat-card-content>\n        </mat-card>\n    </div>\n\n    </div>\n  </div>"
 
 /***/ }),
 
@@ -349,7 +349,7 @@ module.exports = "\r\n\r\n<div style=\"width: 50%; margin-top: 12%; margin-left:
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>not-found works!</p>\r\n"
+module.exports = "<p>not-found works!</p>\n"
 
 /***/ }),
 
@@ -393,7 +393,7 @@ module.exports = "<div>\r\n  <!-- Page header -->\r\n  <header></header>\r\n\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div>\r\n\r\n\r\n  <!-- Main page content -->\r\n  <main>\r\n    <a routerLink=\"/dashboard/cumulative-summary\">\r\n      cumulative Summary\r\n    </a><br><br>\r\n    <a routerLink=\"/dashboard\">\r\n      Dashboard\r\n    </a><br><br>\r\n    <div style=\"width: 100px;\">\r\n    <button fxFlex mat-raised-button color=\"basic\" (click)=\"logout()\">Logout</button>\r\n    </div>\r\n    <router-outlet></router-outlet>\r\n  </main>\r\n</div>\r\n"
+module.exports = "<div>\r\n \r\n\r\n  <!-- Main page content -->\r\n  <main>\r\n\r\n      <mat-toolbar class=\"menu\" role=\"header\" color=\"primary\">\r\n          <mat-toolbar-row>\r\n            <button mat-button class=\"toolbar__icon-button mat-button\">\r\n              <mat-icon>web</mat-icon>\r\n              <span style=\"margin-left: 5px !important;\">Node Quiz</span>\r\n            </button>\r\n            <button mat-button class=\"mat-button\" [routerLink]=\"['/dashboard']\">\r\n              Dashboard\r\n            </button>\r\n            <button mat-button class=\"mat-button\" [routerLink]=\"['/dashboard/cumulative-summary']\">\r\n              Cumulative Summary\r\n            </button>\r\n      \r\n            <div fxFlex></div>\r\n      \r\n            <!-- User Profile -->\r\n            <button mat-button class=\"mat-button\" (click)=\"logout()\">\r\n              Logout\r\n            </button>\r\n            \r\n          </mat-toolbar-row>\r\n        </mat-toolbar>\r\n    \r\n    <router-outlet></router-outlet>\r\n\r\n\r\n  </main>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1353,8 +1353,9 @@ var BaseLayoutComponent = /** @class */ (function () {
     BaseLayoutComponent.prototype.ngOnInit = function () {
     };
     BaseLayoutComponent.prototype.logout = function () {
-        console.log("inside logout()!!!!");
-        this.cookieService.delete('isAuthenticated');
+        //console.log("inside logout()!!!!");
+        //this.cookieService.delete('isAuthenticated');
+        this.cookieService.deleteAll();
         this.router.navigate(['/session/login']);
     };
     BaseLayoutComponent.ctorParameters = function () { return [
@@ -1534,7 +1535,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\William Thomason\Desktop\Bellevue\thomason-nodequiz\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\tthomason\Desktop\Bellevue\thomason-nodequiz\src\main.ts */"./src/main.ts");
 
 
 /***/ })

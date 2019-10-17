@@ -1,7 +1,15 @@
-<h1>Welcome to the Quiz Selection Page!</h1>
+<h1 style="text-align: center;">Welcome to the Quiz Selection Page!</h1>
 <small *ngIf="errorMessage">{{ errorMessage }}<br/></small>
- <div *ngIf="quizzes">  
-    <div style="width: 30%; margin-top: 12%; margin-left: 10%;" fxLayout="column" fxLayoutAlign="center" *ngFor="let quiz of quizzes">
+ <div *ngIf="quizzes">
+
+        <div class="container"
+        fxLayout
+        fxLayout.xs="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        fxLayoutGap.xs="0">
+
+    <div style="width: 30%; margin-top: 12%;" fxFlex="30%" *ngFor="let quiz of quizzes">
         <mat-card class="mat-elevation-z8">
             <mat-card-title>{{ quiz.quizName }}</mat-card-title>
             <mat-card-content>
@@ -15,5 +23,7 @@
 
             </mat-card-content>
         </mat-card>
+    </div>
+
     </div>
   </div>
